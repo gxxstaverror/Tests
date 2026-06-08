@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>É azul mas se faz de verde</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <h1 class="serif-bold">O primeiro passo, para um longo caminho</h1>
+
+    <!-- Glitching small words around -->
+    <div class="glitch-cloud top">
+      <span class="glitch">confidencial</span>
+      <span class="glitch error">error</span>
+      <span class="glitch">confidencial</span>
+      <span class="glitch error">error</span>
+    </div>
+
+    <div class="glitch-cloud right">
+      <span class="glitch error">error</span>
+      <span class="glitch">confidencial</span>
+      <span class="glitch error">error</span>
+    </div>
+
+    <div class="glitch-cloud bottom">
+      <span class="glitch">confidencial</span>
+      <span class="glitch error">error</span>
+    </div>
+
+    <div class="glitch-cloud left">
+      <span class="glitch error">error</span>
+      <span class="glitch">confidencial</span>
+      <span class="glitch">confidencial</span>
+    </div>
+  </main>
+
+  <script>
+    // small JS to randomize subtle positions for the tiny glitch words so each load feels "bugged"
+    document.querySelectorAll('.glitch-cloud').forEach(cloud => {
+      const children = Array.from(cloud.children);
+      children.forEach((el, i) => {
+        const rX = (Math.random() - 0.5) * 8;
+        const rY = (Math.random() - 0.5) * 8;
+        el.style.transform = `translate(${rX}px, ${rY}px) rotate(${(Math.random()-0.5)*6}deg)`;
+      });
+    });
+  </script>
+</body>
+</html>
